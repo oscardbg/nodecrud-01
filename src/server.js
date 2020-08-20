@@ -38,6 +38,7 @@ server.use(express.urlencoded({ extended: false }));
  */
 
 server.use(require('./routes/index.routes'));
+server.use(require('./routes/notes.routes'));
 
 /**
  * Static Files

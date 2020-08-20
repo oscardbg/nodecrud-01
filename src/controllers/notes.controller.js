@@ -1,11 +1,11 @@
 const notesController = {};
 
 notesController.renderNoteFrm = (req, res) => {
-    res.send('This is notes route');
+    res.render('notes/newNote');
 }
 
 notesController.createNote = (req, res) => {
-    
+    res.send(req.body);
 }
 
 notesController.renderNotes = (req, res) => {

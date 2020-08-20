@@ -2,6 +2,7 @@
 /*■■■■■■■■■■■■■■■■■■■■■■■ Core */
 
 body{font-family: Ubuntu, sans-serif;}
+textarea{min-height: 58px; max-height: 200px;}
 
 /*■■■■■■■■■■■■■■■■■■■■■■■  */
 /*■■■■■■■■■■■■■■■■■■■■■■■  */

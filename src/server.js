@@ -3,7 +3,8 @@ const path = require('path');
 const exphbs = require('express-handlebars');
 const morgan = require('morgan');
 const Handlebars = require('handlebars');
-const {allowInsecurePrototypeAccess} = require('@handlebars/allow-prototype-access')
+const {allowInsecurePrototypeAccess} = require('@handlebars/allow-prototype-access');
+const methodOverride = require('method-override');
 
 /**
  * Initializations
@@ -29,7 +30,9 @@ server.set('view engine', 'hbs');
  * Middlewares
  */
 
+//server.use(morgan('dev'));
 server.use(express.urlencoded({ extended: false }));
+server.use(methodOverride('_method'))
 
 /**
  * Global Variables

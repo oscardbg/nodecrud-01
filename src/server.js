@@ -37,9 +37,7 @@ server.use(express.urlencoded({ extended: false }));
  * Routes
  */
 
-server.get('/', (req, res) => {
-    res.render('index');
-})
+server.use(require('./routes/index.routes'));
 
 /**
  * Static Files

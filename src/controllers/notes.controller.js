@@ -20,12 +20,15 @@ notesController.renderNotes = async (req, res) => {
     res.render('notes/notes', {notes});
 }
 
-notesController.renderEditFrm = (req, res) => {
-    
+notesController.renderEditFrm = async (req, res) => {
+    const note = await Note.findById(req.params.id);
+    res.render('notes/editNote', {note});
 }
 
-notesController.updateNote = (req, res) => {
-
+notesController.updateNote = async (req, res) => {
+    const {title, description} = req.body;
+    await Note.findByIdAndUpdate(req.params.id, {title, description});
+    res.redirect('/notes');
 }
 
 notesController.deleteNote = async(req, res) => {

@@ -9,7 +9,7 @@ router.get('/notes/add', renderNoteFrm);
 router.post('/notes/new', createNote);
 router.get('/notes', renderNotes);
 router.get('/notes/edit/:id', renderEditFrm);
-router.put('/notes/edit/:id', updateNote);
+router.put('/notes/update/:id', updateNote);
 router.delete('/notes/delete/:id', deleteNote);
 
 module.exports = router;

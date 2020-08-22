@@ -10,7 +10,7 @@ const userSchema = new Schema({
 })
 
 // encryptPassword could be created as anything
-userSchema.methods.encyptPassword = async (password) => {
+userSchema.methods.encryptPassword = async (password) => {
     const salt = await bcryptjs.genSalt();
     return await bcryptjs.hash(password, salt);
 }

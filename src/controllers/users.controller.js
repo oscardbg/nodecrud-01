@@ -27,7 +27,9 @@ usersController.signupUser = async (req, res) => {
             res.redirect('/users/signup');
         }else{
             const user = new User({name, email, password});
+            user.password = await user.encryptPassword(password);
             await user.save();
+            req.flash('success_msg', 'Sign in successfully');
             res.redirect('/users/signin');
         }
     }

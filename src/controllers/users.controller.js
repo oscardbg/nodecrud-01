@@ -47,7 +47,9 @@ usersController.signinUser = passport.authenticate('local', {
 })
 
 usersController.logoutUser = (req, res) => {
-    res.send('loged out');
+    req.logout();
+    req.flash('success_msg', 'You have logged out');
+    res.redirect('/users/signin');
 }
 
 module.exports = usersController;

@@ -24,7 +24,12 @@ notesController.renderNotes = async (req, res) => {
 
 notesController.renderEditFrm = async (req, res) => {
     const note = await Note.findById(req.params.id);
-    res.render('notes/editNote', {note});
+    if(note.user != req.user.id){
+        req.flash('error_msg', 'Error trying to access the url');
+        res.redirect('/notes');
+    }else{
+        res.render('notes/editNote', {note});
+    }
 }
 
 notesController.updateNote = async (req, res) => {

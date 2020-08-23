@@ -11,13 +11,14 @@ notesController.createNote = async (req, res) => {
     const note = new Note({
         title, description
     });
+    note.user = req.user.id;
     await note.save();
     req.flash('success_msg', 'Note added successfully');
     res.redirect('/notes');
 }
 
 notesController.renderNotes = async (req, res) => {
-    const notes = await Note.find();
+    const notes = await Note.find({user: req.user.id}).sort({createdAt: -1});
     res.render('notes/notes', {notes});
 }
 

@@ -7,12 +7,14 @@ const {allowInsecurePrototypeAccess} = require('@handlebars/allow-prototype-acce
 const methodOverride = require('method-override');
 const flash = require('connect-flash');
 const session = require('express-session');
+const passport = require('passport');
 
 /**
  * Initializations
  */
 
 const server = express();
+require('./config/passport');
 
 /**
  * Settings
@@ -36,6 +38,8 @@ server.set('view engine', 'hbs');
 server.use(express.urlencoded({ extended: false }));
 server.use(methodOverride('_method'))
 server.use(session({secret: 'secret', resave: true, saveUninitialized: true}));
+server.use(passport.initialize()); //========>Must be placed here, right after use session
+server.use(passport.session());
 server.use(flash());
 
 /**
@@ -45,6 +49,7 @@ server.use(flash());
 server.use((req, res, next) => {
     res.locals.success_msg = req.flash('success_msg');
     res.locals.error_msg = req.flash('error_msg');
+    res.locals.error = req.flash('error');
     next();
 })
 

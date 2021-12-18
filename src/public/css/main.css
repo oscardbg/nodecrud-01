@@ -1,0 +1,18 @@
+/*■■■■■■■■■■■■■■■■■■■■■■■  */
+/*■■■■■■■■■■■■■■■■■■■■■■■ Core */
+
+body{font-family: Ubuntu, sans-serif;}
+textarea{min-height: 58px; max-height: 200px;}
+
+/*■■■■■■■■■■■■■■■■■■■■■■■ Initial */
+
+.alert-warning{
+    color: #444;
+}
+
+.fgr-si{
+    margin-top: 25px; height: 80px; background: #2f2f2f url(../img/node_logo.png) center no-repeat; background-size: contain;
+}
+
+/*■■■■■■■■■■■■■■■■■■■■■■■  */
+/*■■■■■■■■■■■■■■■■■■■■■■■  */
